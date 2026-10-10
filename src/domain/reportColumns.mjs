@@ -4,5 +4,6 @@ export const PROJECT_REPORT_COLUMNS=[
   {key:'project',label:'Төсөл'},
   {key:'open',label:'Нээлттэй'},
   {key:'done',label:'Дууссан'},
+  {key:'dueSoon',label:'Ойртож буй хугацаа'},
 ];
 export function reportColumnKeys(){return PROJECT_REPORT_COLUMNS.map(c=>c.key);}
