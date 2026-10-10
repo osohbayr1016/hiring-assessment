@@ -36,3 +36,7 @@ Two pre-existing functional defects and unimplemented Change Request endpoints a
 ## Git conflict baseline correction
 
 The original `exercise/report-planning` branch was merged into an earlier public `main`, which invalidated the old conflict drill. Version 1.1 restores only the *assessment's base report-column metadata*, without deleting Git history, and moves the exercise to fresh `exercise-v2/report-owner` and `exercise-v2/report-planning` branches. Always use `docs/MERGE_EXERCISE.md` and the interviewer-provided baseline SHA.
+
+## Public check compatibility
+
+The baseline returns HTTP 501 for its unfinished Change Request list; completed candidate solutions return HTTP 200. Public tests deliberately permit **either**, then exercise the other public API boundaries. The interviewer-only evaluator grades whether the candidate actually implemented the feature. Do not assert that `501` is required after implementation.
