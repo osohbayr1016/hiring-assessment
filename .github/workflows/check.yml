@@ -1,19 +1,33 @@
 name: Candidate code checks
 on:
   push:
-    branches: [main, 'candidate/**']
+    branches: [main, 'candidate/**', 'upgrade/**']
   pull_request:
     branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
 jobs:
-  unit:
+  unit-and-integration:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [22, 24]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
         with:
-          node-version: '22'
-      - run: npm run setup
-      - run: npm run check
-      - run: npm run smoke
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node-version }}
+          package-manager-cache: false
+      - name: Fresh database setup
+        run: npm run setup
+      - name: Syntax, unit and isolated HTTP integration tests
+        run: npm run check
+      - name: Repeatable integration smoke, twice
+        run: npm run smoke && npm run smoke
+      - name: Verify main fixture was not touched by smoke
+        run: git status --porcelain && test -z "$(git status --porcelain)"
