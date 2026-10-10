@@ -10,7 +10,6 @@ test('OpenAPI 3.1 enumerates all public paths',()=>{
     '/api/change-requests/{id}/decision','/api/change-requests/{id}/history']){
     assert.ok(spec.paths[path],`Missing contract path ${path}`);
   }
-  for(const operation of [spec.paths['/api/change-requests'].post,spec.paths['/api/change-requests/{id}/decision'].post]){
-    assert.match(operation.description,/501/);
-  }
+  assert.equal(spec.paths['/api/change-requests'].post.requestBody.required,true);
+  assert.equal(spec.paths['/api/change-requests/{id}/decision'].post.requestBody.required,true);
 });
