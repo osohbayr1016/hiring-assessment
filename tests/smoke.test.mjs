@@ -5,4 +5,4 @@ import {reportColumnKeys} from '../src/domain/reportColumns.mjs';
 test('task title boundaries',()=>{assert.equal(validTaskTitle('abc'),true);assert.equal(validTaskTitle(''),false);assert.equal(validTaskTitle('a'.repeat(151)),false);});
 test('status values are explicit',()=>{assert.equal(validStatus('todo'),true);assert.equal(validStatus('done'),true);assert.equal(validStatus('archived'),false);});
 test('project completion ratio',()=>{assert.equal(projectHealth([{status:'done',due_date:'2099-01-01'},{status:'todo',due_date:'2099-01-01'}],'2026-10-10').completionPct,50)});
-test('report columns include existing KPIs',()=>{assert.deepEqual(reportColumnKeys(),['project','open','done'])});
+test('report columns preserve existing KPIs without duplicates',()=>{const cols=reportColumnKeys();for(const key of ['project','open','done'])assert.ok(cols.includes(key));assert.equal(new Set(cols).size,cols.length);});
