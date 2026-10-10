@@ -6,7 +6,7 @@ This is a small **working ERP / internal project-management application** for a 
 
 ![Status](https://img.shields.io/badge/environment-local--only-blue) ![Node](https://img.shields.io/badge/Node-22%2B-green)
 
-## Run (Node 22.13+, Git; no npm install necessary)
+## Run (recommended Node 24 Active LTS; supported Node 22.13+, Git; no npm install necessary)
 
 ```bash
 npm run setup
@@ -14,7 +14,9 @@ npm run dev
 # Open http://127.0.0.1:3333
 ```
 
-`npm test` checks existing public regression tests. `npm run smoke` exercises local HTTP + SQLite and **adds one synthetic task**; run `npm run reset` to restore the original seed. Node may print an experimental `node:sqlite` warning; this is expected on Node 22. Only the `127.0.0.1` loopback interface is used.
+`npm run verify` runs syntax, public unit/integration and local HTTP smoke checks. **Smoke uses a temporary seeded database and never modifies your `.data/`**, so it is safe to repeat. `npm run reset` restores your own local app data. Node may print an experimental `node:sqlite` warning; this is expected on Node 22. Only the `127.0.0.1` loopback interface is used.
+
+See [tech stack and decisions](docs/TECH_STACK.md) and [OpenAPI 3.1 contract](docs/openapi.json). The intentionally incomplete feature and two planted defects are still part of the challenge.
 
 ## What exists now
 
@@ -34,7 +36,7 @@ Use a **separate private, non-fork GitHub repository** for your solution. Invite
 
 ## Git conflict exercise
 
-Two feature branches are available in the public starter repository: `exercise/report-owner` and `exercise/report-planning`. See `docs/MERGE_EXERCISE.md`. These are local refs if you clone the bundled repository; if you receive a GitHub URL, fetch the branches using `git fetch origin`.
+Two feature branches are available in the public starter repository: `exercise-v2/report-owner` and `exercise-v2/report-planning`. See `docs/MERGE_EXERCISE.md`. These are local refs if you clone the bundled repository; if you receive a GitHub URL, fetch the branches using `git fetch origin`.
 
 ## Quick troubleshooting
 

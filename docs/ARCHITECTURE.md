@@ -19,3 +19,7 @@ Node HTTP server src/server.mjs
 **Key abstractions:** `projectAccess` hides cross-project data existence with 404; `requireEditor` is demo role gating; `activity_log` records auditable state changes; `version` on tasks and change requests is reserved for optimistic concurrency control; `projectHealth` calculates user-visible metrics.
 
 **Deliberate limitations:** Fake `X-Demo-User` header, single-process synchronous SQLite, no multi-tenant identity provider, no file uploads, no background tasks, no real notifications, no production observability. Never deploy publicly.
+
+## Updated test/runtime boundary
+
+`tools/harness.mjs` seeds an independent temporary SQLite file per check and boots an ephemeral localhost port. `LAB_DB_PATH` selects that fixture; the normal app still uses `.data/assessment.sqlite`. New security headers and `x-request-id` apply to API and static responses. Node 24 LTS is preferred, Node 22 is compatibility-tested. See `TECH_STACK.md`.

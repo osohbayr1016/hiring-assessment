@@ -30,3 +30,7 @@ Status codes expected: 200/201 success; 400 malformed input; 403 role forbidden;
 | `u_out` | engineer | BRG-C only |
 
 No actual passwords/production identities exist. The role switcher is **not** production authentication.
+
+## Machine-readable contract
+
+See [`openapi.json`](openapi.json) (OpenAPI 3.1). The spec explicitly marks intentionally unimplemented Change Request routes. After implementing the feature, update the response schemas and remove the TODO notices without weakening the required behaviors.
