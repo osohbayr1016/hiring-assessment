@@ -60,3 +60,9 @@ Run `npm test` and `npm run check`; add tests for any new business logic. Write 
 - In 30-minute defense, explain 1 code path, 1 bug, 1 design trade-off; be ready for a small live change.
 
 **Fairness:** This is an assessment, not a production feature request. All candidates receive the same version and objective criteria. Make sure you use the assigned baseline commit. Public disclosure of your solution before all interviews have finished is discouraged. Work outside the 3–4h guideline provides no bonus.
+
+## Additional evidence and live evaluation (transparent requirements)
+
+- Optional self-generated manifest: `npm run evidence -- --run-checks`; attach `.data/candidate-evidence.json` only to your **private** submission. For assigned baseline commit use `--base <sha>`. The interviewer independently verifies PR and CI.
+- Every finalist may have an identical live debugging/code-defense and structured architecture/product discussion, using criteria published in [Hiring Playbook](docs/HIRING_PLAYBOOK.md). No undisclosed additional feature is required.
+- Do not put candidate contact details, reviewer private notes, or solution files in the public starter. No automated activity surveillance is performed.
