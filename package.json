@@ -16,6 +16,7 @@
     "check": "npm run check:syntax && npm test",
     "smoke": "node tools/smoke.mjs",
     "verify": "npm run check && npm run smoke",
-    "reset": "node tools/setup.mjs --reset"
+    "reset": "node tools/setup.mjs --reset",
+    "evidence": "node tools/evidence.mjs"
   }
 }

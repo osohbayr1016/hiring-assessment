@@ -23,3 +23,8 @@ This template repository is public. **Do not open a PR with your answer here**: 
 If you cannot create a private GitHub repo, ask the interviewer for an alternate private ZIP/email delivery method. Use only synthetic data. No external deployment is required.
 
 Before the trial, the interviewer should communicate the exact baseline commit SHA and the time limit. Keep `DECISIONS.md` and `ARCHITECTURE_PROPOSAL.md` short; explanatory evidence matters more than total code volume.
+
+
+### Optional local evidence manifest
+
+Run `npm run evidence -- --base <assigned-sha> --run-checks`. It writes `.data/candidate-evidence.json` (gitignored); attach it to your private reviewer submission if you wish. The manifest is a convenience, not a grading shortcut. Work quality, safety, and live reasoning are independently evaluated. See [Evidence Protocol](EVIDENCE_PROTOCOL.md).

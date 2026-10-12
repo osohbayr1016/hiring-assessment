@@ -50,3 +50,7 @@ Two feature branches are available in the public starter repository: `exercise-v
 ## Security
 
 `X-Demo-User` is a **local-only fake identity selector**, not authentication. Do not use this pattern in a real product. No auth provider, third-party API, cloud database, credentials, or production URL is configured. See [SECURITY.md](SECURITY.md).
+
+## Work evidence and non-GitHub evaluation
+
+Before submitting, review [Hiring Playbook](docs/HIRING_PLAYBOOK.md), [Evidence Protocol](docs/EVIDENCE_PROTOCOL.md), and [additional live scenarios](docs/LIVE_SCENARIOS.md). Optional local-only manifest: `npm run evidence -- --run-checks` (saved to ignored `.data/candidate-evidence.json`). This collects only bounded Git/test metadata at candidate request; it does not monitor screens, typing or AI tools. Interviewer scores, private records and hidden tests are **not** in this public repository.
